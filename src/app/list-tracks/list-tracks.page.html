@@ -1,0 +1,27 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>Titres</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card  *ngFor="let track of tracks">
+    <ion-card-header>
+      <ion-card-title>{{track.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <audio controls>
+        <source [src]="track.preview" type="audio/mpeg">
+      </audio>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="nbTracks == 0">
+    <ion-card-title>Pas de titre trouvé dans cet album</ion-card-title>
+  </ion-card>
+
+</ion-content>

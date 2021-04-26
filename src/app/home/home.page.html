@@ -1,0 +1,24 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Recherche artiste</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar type="text" placeholder="Artiste" (ionChange)="onSearchArtist($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card  *ngFor="let artist of artists" [routerLink]="['/list-albums', artist.id]">
+    <img [src]="artist.picture" />
+    <ion-card-header>
+      <ion-card-subtitle>{{artist.nb_fan}} fans</ion-card-subtitle>
+      <ion-card-title>{{artist.name}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  
+  <ion-card *ngIf="nbArtists == 0">
+    <ion-card-title>Aucun résultat</ion-card-title>
+  </ion-card>
+
+</ion-content>

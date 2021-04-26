@@ -1,0 +1,24 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>Albums</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card  *ngFor="let album of albums" [routerLink]="['/list-tracks', album.id]">
+    <img [src]="album.cover" />
+    <ion-card-header>
+      <ion-card-subtitle>{{album.release_date}}</ion-card-subtitle>
+      <ion-card-title>{{album.title}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card *ngIf="nbAlbums == 0">
+    <ion-card-title>Pas d'album trouvé pour cet artiste</ion-card-title>
+  </ion-card>
+
+</ion-content>
